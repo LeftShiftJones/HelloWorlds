@@ -4,7 +4,6 @@ start-end-weight,start-end-weight
 [a-b-3,a-c-2,b-c-5]
 """
 def main():
-    print("¯\_(ツ)_/¯")
     nodes = make_nodes(input().split(','))
     n = None
     while n is None:
@@ -16,7 +15,6 @@ def main():
         print(i,":", count[i])
 
 # Turn our list of strings into something useful
-# WORKING
 def make_nodes(node_list):
     list = []
     for i in node_list:
@@ -32,7 +30,6 @@ def make_nodes(node_list):
             n['vertices'].append({"node":i[1], "weight":int(i[2])})
 
         #now make it reflexive (non-directed graph)
-        # could make another helper function, but it'd save 10 lines ¯\_(ツ)_/¯
         name = i[1]
         n = get_node(list, name)
         if n is None:
@@ -45,7 +42,6 @@ def make_nodes(node_list):
     return list
 
 # Helper checks to see if dictionary result already exists
-# WORKING
 def get_node(list, attr):
     for i in list:
         if i['name']==attr:
@@ -54,7 +50,6 @@ def get_node(list, attr):
 
 #Given a node to start from, find dijkstra's shortest
 #   path to all other connected nodes in the graph
-# WORKING
 def find_dijkstra_graph(vertices, starting_vertex):
     distances = set_up_distances(vertices, starting_vertex)
     visited = []
@@ -62,13 +57,11 @@ def find_dijkstra_graph(vertices, starting_vertex):
     return distances
 
 # Recursive method to check surrounding nodes and change distances accordingly
-# WORKING
 def visit_surrounding_nodes(node, distances, vertices, visited):
     visited.append(node)
     node_name = node['name']
     for i in node['vertices']:
         i_name = i['node']
-        # current_weight =
         if distances[node_name] + i['weight'] < distances[i_name]:
             distances[i_name] = distances[node_name] + i['weight']
     # Now recurse through other nodes
@@ -83,7 +76,6 @@ def visit_surrounding_nodes(node, distances, vertices, visited):
 
 
 # Set all distances to max
-# WORKING
 def set_up_distances(vertices, starter):
     max = float("inf")
     distances = {}
