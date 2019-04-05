@@ -5,6 +5,8 @@ import "fmt"
 func main() {
     lst := []int{3, 1, 2, 19, 6, 2, 3, 5, 8 ,9 ,24 ,23, 12, 54 ,76, 4}
     sort(lst)
+    var variable = 5
+    variable := 5
     ok, place := binary_search(lst, 5)
     if ok {
         fmt.Println("Found 5 at index", place)
